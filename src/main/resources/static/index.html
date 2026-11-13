@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>University Management System</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+
+  <!-- Login -->
+  <main id="loginView" class="login-wrap" hidden>
+    <form id="loginForm" class="card login-card" autocomplete="on">
+      <h1>University Management System</h1>
+      <p class="muted">Sign in to continue</p>
+      <label>Username
+        <input name="username" required autocomplete="username" autofocus>
+      </label>
+      <label>Password
+        <input name="password" type="password" required autocomplete="current-password">
+      </label>
+      <p id="loginError" class="error" role="alert" hidden></p>
+      <button class="btn primary" type="submit">Sign in</button>
+    </form>
+  </main>
+
+  <!-- App -->
+  <div id="appView" hidden>
+    <header class="topbar">
+      <strong>University Management System</strong>
+      <div class="user">
+        <span id="whoami"></span>
+        <button id="logoutBtn" class="btn">Log out</button>
+      </div>
+    </header>
+
+    <main class="container">
+      <nav id="tabs" class="tabs" aria-label="Resources"></nav>
+
+      <section class="card">
+        <div class="toolbar">
+          <h2 id="listTitle"></h2>
+          <button id="addBtn" class="btn primary">+ Add</button>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead id="thead"></thead>
+            <tbody id="tbody"></tbody>
+          </table>
+        </div>
+        <p id="empty" class="muted center" hidden>Nothing here yet.</p>
+      </section>
+    </main>
+  </div>
+
+  <!-- Create / edit dialog -->
+  <dialog id="dlg">
+    <form id="userForm" method="dialog">
+      <h3 id="dlgTitle"></h3>
+      <label>Username
+        <input name="username" required minlength="3" maxlength="50">
+      </label>
+      <label><span id="pwLabel">Password</span>
+        <input name="password" type="password" minlength="6" maxlength="100" autocomplete="new-password">
+      </label>
+      <label>Full name
+        <input name="fullName" required>
+      </label>
+      <label>Email
+        <input name="email" type="email" required>
+      </label>
+      <label id="extraWrap" hidden><span id="extraLabel"></span>
+        <input name="extra">
+      </label>
+      <p id="formError" class="error" role="alert" hidden></p>
+      <div class="actions">
+        <button type="button" id="cancelBtn" class="btn">Cancel</button>
+        <button type="submit" class="btn primary">Save</button>
+      </div>
+    </form>
+  </dialog>
+
+  <div id="toast" class="toast" role="status" hidden></div>
+
+  <script src="/app.js"></script>
+</body>
+</html>

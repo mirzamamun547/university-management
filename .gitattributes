@@ -1,0 +1,3 @@
+# Keep shell scripts on LF line endings, even when checked out on Windows
+* text=auto
+*.sh text eol=lf
